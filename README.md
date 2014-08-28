@@ -1,5 +1,4 @@
 [ ![Codeship Status for bobolinks-2014/dobo-source](https://www.codeship.io/projects/a4bd0af0-10f1-0132-455e-4ed0225ce9a8/status)](https://www.codeship.io/projects/32933)
-
 # Dobo Source
 
 ## Purpose
