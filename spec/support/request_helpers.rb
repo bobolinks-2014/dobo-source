@@ -11,4 +11,9 @@ module RequestHelpers
   def login(user)
     login_as user, scope: :user
   end
+
+  def create_user
+    user = User.create(email: "email@example.com", password: "asdfasdf", password_confirmation: "asdfasdf")
+    user
+  end
 end
