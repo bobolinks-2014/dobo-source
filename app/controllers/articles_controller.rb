@@ -1,6 +1,9 @@
 class ArticlesController < ApplicationController
-  before_update :increase_vote_count
-  before_save :add_user_id
+  before_filter :authenticate_user!, only: [:new] 
+
+  def index 
+    @articles = Article.all.order(created_at: :desc)  
+  end
 
   private
   
@@ -8,9 +11,4 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(:title, :url, :short_description, :body, :tag_list)
   end
   
-  def increase_vote_count
-  end
-
-  def add_user_id
-  end
 end

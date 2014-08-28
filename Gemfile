@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
 # Use postgresql as the database for Active Record
@@ -26,13 +25,15 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-group :development do
-  gem 'spring'
+gem 'spring', group: :development
+
+group :development, :test do
+  gem 'rspec-rails', '~> 2.14.1'
+  gem 'capybara', '~> 2.2.1'
+  gem 'database_cleaner', '~> 1.2.0'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'capybara'
 end
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
