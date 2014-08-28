@@ -1,3 +1,4 @@
+#devise runs in a gem and does a lot of user authentication testing
 require 'spec_helper'
 
 describe User do
