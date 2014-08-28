@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user! 
+  before_filter :authenticate_user!, only: [:new] 
 
   def index 
     @articles = Article.all.order(created_at: :desc)  

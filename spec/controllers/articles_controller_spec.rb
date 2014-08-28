@@ -1,14 +1,16 @@
 require 'spec_helper'
 
 describe ArticlesController do
-  before do
-    Article.create(title: "New Title", url: "http://google.com", short_description: "hey there")
+  include Devise::TestHelpers
+
+  it 'should have an index with a response of 200, OK' do
+    get :index
+    expect(response.status).to eq 200
   end
-  describe 'articles#index' do
-    it 'should have a list of articles in descending order by created_at' do
-      get :index
-      expect(response.status).to eq 200
-      expect(page).to have_content("New Title")
-    end
+
+  it 'should not have access to the article#new page, reponse 302, redirect' do
+    get :new
+    expect(response.status).to eq 302
   end
+
 end
