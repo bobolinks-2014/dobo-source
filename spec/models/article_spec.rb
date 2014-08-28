@@ -1,7 +1,27 @@
 require 'spec_helper'
 
 describe Article do
-  describe 'create a new article' do
+  
+  describe 'validations' do
+    it { should validate_presence_of(:title) } 
+    it { should validate_presence_of(:short_description) }
+  end
+
+  describe 'associations' do
+    it { should belong_to(:poster).class_name('User'), foreign_key: 'user_id' }
+    it { should have_many(:votes) }
+    it { should have_many(:comments) }
+  end
+
+  #describe 'before save methods' do
+  pending do 
+
+  end
+
+
+
+  #describe 'create a new article' do
+  pending do
     it 'should require a title' do
       
     end
