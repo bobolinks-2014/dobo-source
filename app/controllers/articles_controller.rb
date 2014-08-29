@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_filter :authenticate_user!, only: [:new] 
+  before_filter :authenticate_user!, only: [:new, :edit] 
 
   def index 
     @articles = Article.all.order(created_at: :desc)  
@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-
+   @article = Article.find(params[:id])
   end
   
   def destroy

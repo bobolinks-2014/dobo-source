@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe ArticlesController do
   include Devise::TestHelpers
+  include RequestHelpers
 	context 'when user is not logged in' do
 
 	  it 'should have an index with a response of 200, OK' do
@@ -14,32 +15,34 @@ describe ArticlesController do
 	    expect(response.status).to eq 302
 	  end
 
-    pending 'should have access to the article#show page, response 200' do
-	    get :show
+    it 'should have access to the article#show page, response 200' do
+      article = Article.create(title: "asdf", url: "asdf", short_description: "asdf")
+      visit article_path(article)
 	    expect(response.status).to eq 200
 	  end
 
-	  pending 'should not have access to the article#edit page, response 302, redirect' do
-	    get :edit
-	    expect(response.status).to eq 302
+	  it 'should not have access to the article#edit page, response 302, redirect' do
+      article = Article.create(title: "asdf", url: "asdf", short_description: "asdf")
+      visit edit_article_path(article)
+      expect(page).to have_content("You need to sign in or sign up before continuing.")
 	  end
 
-	  pending 'should not have access to the article#destroy page, response 302, redirect' do
-	    get :delete
-	    expect(response.status).to eq 302
-	  end
 	end
 
 	context 'when user is logged in' do
 
-	  pending 'should have an index with a response of 200, OK' do
+	  it 'should have an index with a response of 200, OK' do
+      create_logged_in_user
 	    get :index
 	    expect(response.status).to eq 200
+      logout
 	  end
 
-	  pending 'should have access to the article#new page, response 200' do
-	    get :new
+	  it 'should have access to the article#new page, response 200' do
+      create_logged_in_user
+      get :new
 	    expect(response.status).to eq 200
+      logout
 	  end
 
     pending 'should have access to the article#show page, response 200' do
