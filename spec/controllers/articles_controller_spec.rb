@@ -40,49 +40,18 @@ describe ArticlesController do
 
 	  it 'should have access to the article#new page, response 200' do
       create_logged_in_user
-      get :new
+      visit new_article_path
 	    expect(response.status).to eq 200
       logout
 	  end
 
-    pending 'should have access to the article#show page, response 200' do
-	    get :show
+    it 'should have access to the article#show page, response 200' do
+	   	article = Article.create(title: "asdf", url: "asdf", short_description: "asdf")
+     	visit article_path(article)
 	    expect(response.status).to eq 200
 	  end
 
 	end
 
-	context 'logged in users and editing or deleting articles' do
-		let(:user) {}
-		
-		describe 'CAN edit / delete their own articles' do 
-
-		  pending 'should have access to the article#edit page when article belongs to user, response 200' do
-		    get :edit
-		    expect(response.status).to eq 200
-		  end
-
-		  pending 'should have access to the article#destroy page when article belongs to user, response 200' do
-		    get :destroy
-		    expect(response.status).to eq 200
-		  end
-
-		end
-
-		describe 'CANNOT edit / delete others\' articles' do 
-
-		  pending 'should not have access to the article#edit page when article does not belong to user, response 404, redirect' do
-		    get :edit
-		    expect(response.status).to eq 404
-		  end
-
-		  pending 'should not have access to the article#destroy page when article does not belong to user, response 404, redirect' do
-		    get :destroy
-		    expect(response.status).to eq 404
-		  end
-	
-		end
-	
-	end
 
 end
