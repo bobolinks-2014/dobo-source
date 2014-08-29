@@ -1,3 +1,5 @@
 class Vote < ActiveRecord::Base
-  belongs_to :tally, polymorphic: true
+  belongs_to :user
+  belongs_to :comment
+  belongs_to :article
 end

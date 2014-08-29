@@ -11,30 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140828001633) do
+ActiveRecord::Schema.define(version: 20140829155305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "articles", force: true do |t|
-    t.string   "title",                                     null: false
-    t.text     "url"
-    t.string   "short_description", limit: 140,             null: false
-    t.text     "body"
-    t.integer  "user_id"
-    t.integer  "vote_count",                    default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "comments", force: true do |t|
-    t.integer  "article_id"
-    t.integer  "user_id"
-    t.text     "body",                   null: false
-    t.integer  "vote_count", default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
@@ -57,31 +37,17 @@ ActiveRecord::Schema.define(version: 20140828001633) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "cohort_animal"
-    t.integer  "cohort_year"
+    t.string   "name"
+    t.string   "email"
+    t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
   create_table "votes", force: true do |t|
-    t.string   "tally_type"
-    t.integer  "tally_id"
     t.integer  "user_id"
+    t.integer  "comment_id"
+    t.integer  "article_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
