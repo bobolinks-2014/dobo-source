@@ -5,11 +5,15 @@ class ArticlesController < ApplicationController
     @articles = Article.all.order(created_at: :desc)  
   end
 
-
   def new
-
+    @article = Article.new
   end
   
+  def create
+    article = Article.create(article_params)
+    redirect_to article_path(article)
+  end
+
   def show
   	@article = Article.find(params[:id])
   end
@@ -19,6 +23,8 @@ class ArticlesController < ApplicationController
   end
   
   def destroy
+    @article = Article.find(params[:id])
+
 
   end
 
