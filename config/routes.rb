@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root 'articles#index'
   resources :articles do
   	resources :votes
-   #  resources :comments do
-   #  	resources :votes
-  	# end
+    resources :comments do
+    	resources :votes
+  	end
   end
 end
