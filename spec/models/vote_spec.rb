@@ -1,25 +1,25 @@
 require 'spec_helper'
 
-# describe Vote do
+describe Vote do
 
-#   it 'belongs to a user' do
+  it 'belongs to a user' do
 
-#   end
+  end
 
-#   it 'belongs to a comment' do
+  it 'belongs to a comment' do
 
-#   end
+  end
 
-#   it 'belongs to an article' do
+  it 'belongs to an article' do
 
-#   end
+  end
 
-#   it 'a user cannot vote more than once on a comment' do
+  it 'a user cannot vote more than once on a comment' do
 
-#   end
+  end
 
-#   it 'a user cannot vote more than once on an article' do
+  it 'a user cannot vote more than once on an article' do
 
-#   end
+  end
 
-# end
+end
