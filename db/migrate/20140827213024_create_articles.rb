@@ -6,7 +6,7 @@ class CreateArticles < ActiveRecord::Migration
       t.string :short_description, null: false, limit: 140
       t.text :body
       t.integer :user_id
-      t.integer :vote_count, default: 0
+      t.integer :votes_count, default: 0
 
       t.timestamps
     end
