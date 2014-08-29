@@ -1,6 +1,25 @@
-<h1>Articles#index Page</h1>
+<h1 class="page-header">
+  Recent Resources
+  <% if user_signed_in? %>
+    <button type="button" class="btn btn-success btn-md pull-right">Add New Resource</button>
+  <% end %>
+</h1>
 
 <% @articles.each do |article| %>
-poop
-<%= article.title %>
+<button class="btn btn-default btn-xs" type="submit">niiiiiice</button>
+  <div class="panel panel-default">
+    
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= article.title %></h3>
+    </div>
+    
+    <div class="panel-body">
+      <%= article.short_description %>
+    </div>
+    
+    <div class="panel-body">
+      <small>posted by: <%= article.poster.email %> | #of comments | date</small>
+    </div>
+
+  </div>
 <% end %>
