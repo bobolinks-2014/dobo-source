@@ -1,23 +1,15 @@
+#devise runs in a gem and does a lot of user authentication testing
 require 'spec_helper'
 
 describe User do
-  describe 'create a new user' do
-
-    it 'should require an email' do
-      
+  describe 'association tests' do
+    it { should have_many(:articles) }
+    it { should have_many(:comments) }
+  end
+  
+  describe 'validations' do
+    it 'should validate uniqueness of email' do
+      should validate_uniqueness_of(:email)
     end
-
-    it 'password and password confirmation should match' do
-
-    end
-
-    it 'password must be more than eight characters long' do
-
-    end
-
-    it 'email must be unique' do
-
-    end
-
   end
 end
