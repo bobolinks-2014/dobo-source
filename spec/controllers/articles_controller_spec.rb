@@ -53,5 +53,38 @@ describe ArticlesController do
 
 	end
 
+	context 'logged in users and editing or deleting articles' do
+		
+		describe 'CAN edit / delete their own articles' do 
+			#must create the view before further investigation
+		  pending 'should have access to the article#edit page when article belongs to user, response 200' do
+		    user = create_logged_in_user
+		    user.articles.create(title: "asdf", url: "asdf", short_description: "asdf")
+		    visit edit_article_path(Article.last)
+		    save_and_open_page
+		    expect(response.status).to eq 200
+		    logout
+		  end
+
+		  pending 'should have access to the article#destroy page when article belongs to user, response 200' do
+		    get :destroy
+		    expect(response.status).to eq 200
+		  end
+
+		end
+
+		describe 'CANNOT edit / delete others\' articles' do 
+
+		  it 'should not have access to the article#edit page when article does not belong to user and no one is signed in, response 404, redirect' do
+		    user = create_user
+		    user.articles.create(title: "new title", short_description: "new description")
+		    visit edit_article_path(Article.last)
+		    expect(page).to have_content("You need to sign in or sign up before continuing.")
+		  end
+
+		  
+		end
+	
+	end
 
 end
