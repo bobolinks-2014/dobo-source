@@ -3,16 +3,16 @@ class VotesController < ApplicationController
 	respond_to :json
 	
 	def create
-		# raise "vasdfasdfasdf"
-
-
 		@vote = Vote.new(vote_params)
+		
 		respond_to do |format|
+			
 			if @vote.save
 				format.json { render json: @vote.to_json }
 			else
 				format.json { render json: { problem: "vote didn't save" }.to_json}
 			end
+		
 		end
 
 	end

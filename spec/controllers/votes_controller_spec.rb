@@ -44,6 +44,34 @@ describe VotesController do
 	
 	end
 
+	describe 'when a user is not logged in' do
+		let(:article) do
+			Article.create!(title: "cool title", short_description: "this is a description of the article", user_id: 1)
+		end
+
+		let(:comment) do
+			Comment.create!(article: article, user_id: 1, body: "This is a great article!")
+		end
+
+
+		it 'should not create an article vote' do
+			
+			json = { article_id: article.id, vote: {tally_id: article.id, tally_type: 'Article'}}
+			
+			expect{post :create, json.merge(format: :json)}.to raise_error(NoMethodError)
+			
+		end
+
+		it 'should not create a comment vote' do
+			
+			json = { article_id: article.id, comment_id: comment.id, vote: {tally_id: comment.id, tally_type: 'Comment'}}
+			
+			expect{post :create, json.merge(format: :json)}.to raise_error(NoMethodError)
+			
+		end	
+	
+	end
+
 
 end
  
