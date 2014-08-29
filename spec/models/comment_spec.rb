@@ -1,25 +1,10 @@
 require 'spec_helper'
 
 describe Comment do
-  describe 'create a new comment' do
-    it 'should require a body' do
-      
-    end
-
-    it 'should default vote_count to zero' do
-
-    end
-
-    it 'should belong to a article' do
-
-    end
-
-    it 'should belong to a commenter' do
-
-    end
-
-    it 'has many tallies' do
-
-    end
+  describe 'comment associations' do
+      it { should belong_to(:article) }
+      it { should belong_to(:commenter).class_name('User'), foreign_key: 'user_id'}
+      it { should have_many(:votes) }
   end
+
 end
