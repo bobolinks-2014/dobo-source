@@ -13,22 +13,17 @@
 		<%= f.label :short_description, "Short Description" %><br>
 		<%= f.text_field :short_description, :autofocus => true %>
 	</div>
-	<div class="check-box">
-		<input type="checkbox" name="tag_ids[]" value="phase_0" />
-		<input type="checkbox" name="tag_ids[]" value="phase_1" />
-		<input type="checkbox" name="tag_ids[]" value="phase_2" />
-
-
-		<%#= f.check_box_tag(:phase_tag, "Phase 0") %>
-		<%#= f.label_tag(:phase_tag, "Phase 0") %>
-		<%#= f.check_box_tag(:phase_tag, "Phase 1") %>
-		<%#= f.label_tag(:phase_tag, "Phase 1") %>
-		<%#= f.check_box_tag(:phase_tag, "Phase 2") %>
-		<%#= f.label_tag(:phase_tag, "Phase 2") %>
-		<%#= f.check_box_tag(:phase_tag, "Phase 3") %>
-		<%#= f.label_tag(:phase_tag, "Phase 3") %>
-		<%#= f.check_box_tag(:phase_tag, "Alumni") %>
-		<%#= f.label_tag(:phase_tag, "Alumni") %>
+	<div>
+		<input name="phase_tag[]" type="checkbox" value="phase0" />
+		<label for="phase_tag[]">Phase 0</label>
+		<input name="phase_tag[]" type="checkbox" value="phase1" />
+		<label for="phase_tag[]">Phase 1</label>
+		<input name="phase_tag[]" type="checkbox" value="phase2" />
+		<label for="phase_tag[]">Phase 2</label>
+		<input name="phase_tag[]" type="checkbox" value="phase3" />
+		<label for="phase_tag[]">Phase 3</label>
+		<input name="phase_tag[]" type="checkbox" value="alumni" />
+		<label for="phase_tag[]">Alumni</label>
 	</div>
 
 	<div> 
