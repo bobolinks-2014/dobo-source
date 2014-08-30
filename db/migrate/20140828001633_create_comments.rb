@@ -4,7 +4,7 @@ class CreateComments < ActiveRecord::Migration
       t.integer :article_id
       t.integer :user_id
       t.text :body, null: false
-      t.integer :vote_count, default: 0
+      t.integer :votes_count, default: 0
 
       t.timestamps
     end

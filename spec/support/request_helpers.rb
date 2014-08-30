@@ -1,9 +1,10 @@
 require 'spec_helper'
-include Warden::Test::Helpers
 
 module RequestHelpers
+include Warden::Test::Helpers
+
   def create_logged_in_user
-    user = User.create(email: "email2@example.com", password: "asdfasdf", password_confirmation: "asdfasdf")
+    user = User.create!(email: "email2@example.com", password: "asdfasdf", password_confirmation: "asdfasdf")
     login(user)
     user
   end
