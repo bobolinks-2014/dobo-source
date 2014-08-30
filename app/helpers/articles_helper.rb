@@ -3,6 +3,14 @@ module ArticlesHelper
   def has_body(article)
     article.body != nil
   end
+  
+  def article_link(article)
+    if article.url == "" || article.url == nil
+        article_comments_path(article)
+    else
+        article.url
+    end
+  end
 
   def has_tags(article)
     article.tags != []
