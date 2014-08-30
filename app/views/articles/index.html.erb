@@ -6,20 +6,23 @@
 </h1>
 
 <% @articles.each do |article| %>
-<button class="btn btn-default btn-xs" type="submit">niiiiiice</button>
+
   <div class="panel panel-default">
     
     <div class="panel-heading">
-      <h3 class="panel-title"><%= article.title %></h3>
+      <h4 class="article-title"><%= article.title %></h4>
+      <button class="article-nice-button btn btn-default btn-xs pull-right" type="submit">niiiiiice</button>
+      <h3 class="article-vote-count pull-right badge"><%= article.votes.count %></h3>
     </div>
     
     <div class="panel-body">
       <%= article.short_description %>
     </div>
     
-    <div class="panel-body">
+    <div class="article-details panel-body">
       <small>posted by: <%= article.poster.email %> | #of comments | date</small>
     </div>
 
   </div>
 <% end %>
+
