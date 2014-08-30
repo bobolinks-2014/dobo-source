@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20140828001633) do
     t.string   "short_description", limit: 140,             null: false
     t.text     "body"
     t.integer  "user_id"
-    t.integer  "vote_count",                    default: 0
+    t.integer  "votes_count",                   default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20140828001633) do
   create_table "comments", force: true do |t|
     t.integer  "article_id"
     t.integer  "user_id"
-    t.text     "body",                   null: false
-    t.integer  "vote_count", default: 0
+    t.text     "body",                    null: false
+    t.integer  "votes_count", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
