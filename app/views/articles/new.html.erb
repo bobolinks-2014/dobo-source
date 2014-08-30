@@ -13,6 +13,19 @@
 		<%= f.label :short_description, "Short Description" %><br>
 		<%= f.text_field :short_description, :autofocus => true %>
 	</div>
+	<div>
+		<input name="phase_tag[]" type="checkbox" value="phase0" />
+		<label for="phase_tag[]">Phase 0</label>
+		<input name="phase_tag[]" type="checkbox" value="phase1" />
+		<label for="phase_tag[]">Phase 1</label>
+		<input name="phase_tag[]" type="checkbox" value="phase2" />
+		<label for="phase_tag[]">Phase 2</label>
+		<input name="phase_tag[]" type="checkbox" value="phase3" />
+		<label for="phase_tag[]">Phase 3</label>
+		<input name="phase_tag[]" type="checkbox" value="alumni" />
+		<label for="phase_tag[]">Alumni</label>
+	</div>
+
 	<div> 
 		<%= f.label :body, "Post" %><br>
 		<%= f.text_field :body, :class => "big-input-box", :autofocus => true %>

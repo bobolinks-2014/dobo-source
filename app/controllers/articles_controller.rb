@@ -12,7 +12,17 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     
-    if @article.save
+    # TODO: fix error message for phase tags to include all problems
+    # TODO: flash alert persists through redirect
+    if params["phase_tag"] == nil
+      errors = ["You must select a phase tag!"]
+      flash.now[:alert] = errors.join(', ')
+      render "new"
+    elsif @article.save
+      params["phase_tag"].each do |phase_tag|
+        @article.tag_list.add(phase_tag)
+      end
+      @article.save
       @article.update(poster: current_user)
       redirect_to article_comments_path(@article)
     else
