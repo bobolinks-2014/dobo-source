@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
     @article.update(poster: current_user)
     p @article
     if @article.save
-      redirect_to article_path(article)
+      redirect_to article_path(@article)
     else
       flash[:alert] = @article.errors.full_messages.join(",")
       render "new"
