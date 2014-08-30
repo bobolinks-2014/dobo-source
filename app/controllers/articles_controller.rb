@@ -10,12 +10,19 @@ class ArticlesController < ApplicationController
   end
   
   def create
-    article = Article.create(article_params)
-    redirect_to article_path(article)
+    @article = Article.new(article_params)
+    
+    if @article.save
+      @article.update(poster: current_user)
+      redirect_to article_path(@article)
+    else
+      flash[:alert] = @article.errors.full_messages.join(",")
+      render "new"
+    end
   end
 
   def show
-  	@article = Article.find(params[:id])
+    @article = Article.find(params[:id])
   end
 
   def edit
@@ -24,8 +31,6 @@ class ArticlesController < ApplicationController
   
   def destroy
     @article = Article.find(params[:id])
-
-
   end
 
 
