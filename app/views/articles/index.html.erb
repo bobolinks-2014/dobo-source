@@ -1,7 +1,7 @@
 <h1 class="page-header">
   Recent Resources
   <% if user_signed_in? %>
-    <button type="button" class="btn btn-success btn-md pull-right"><%= link_to 'Add New Resource', new_article_path %></button>
+    <%= link_to new_article_path do %><button type="button" class="btn btn-success btn-md pull-right">Add New Resource</button> <% end %>
   <% end %>
 </h1>
 
@@ -10,8 +10,12 @@
   <div class="panel panel-default">
     
     <div class="panel-heading">
-      <h4 class="article-title"><%= article.title %></h4>
+        <%= link_to article_link(article) do %>
+          <h4 class="article-title"><%= article.title %></h4>
+        <% end %>  
+      <% if user_signed_in? %>
       <button class="article-nice-button btn btn-default btn-xs pull-right" type="submit">niiiiiice</button>
+      <% end %>
       <h3 class="article-vote-count pull-right badge"><%= article.votes.count %></h3>
     </div>
     
@@ -20,7 +24,8 @@
     </div>
     
     <div class="article-details panel-body">
-      <small>posted by: <%= article.poster.email %> | #of comments | date</small>
+      <small>posted by: <%= article.poster.email %> | <%= link_to article_comments_path(article) do %> <%= pluralize(article.comments.count, 'comment') %><%end %>
+       | created on: <%= date(article) %></small>
     </div>
 
   </div>
