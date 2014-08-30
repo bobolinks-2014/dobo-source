@@ -24,8 +24,7 @@ class ArticlesController < ApplicationController
       end
       @article.save
       @article.update(poster: current_user)
-      redirect_to article_path(@article)
-      # redirect_to article_comments_path(@article)
+      redirect_to article_comments_path(@article)
     else
       flash[:alert] = @article.errors.full_messages.join(",")
       render "new"
@@ -48,7 +47,7 @@ class ArticlesController < ApplicationController
   private
   
   def article_params
-    params.require(:article).permit(:title, :url, :short_description, :body, :tag_list, :phase_tag)
+    params.require(:article).permit(:title, :url, :short_description, :body, :tag_list)
   end
   
 end
