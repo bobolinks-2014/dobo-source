@@ -10,8 +10,15 @@ class ArticlesController < ApplicationController
   end
   
   def create
-    article = Article.create(article_params)
-    redirect_to article_path(article)
+    @article = Article.new(article_params)
+    @article.update(poster: current_user)
+    p @article
+    if @article.save
+      redirect_to article_path(article)
+    else
+      flash[:alert] = @article.errors.full_messages.join(",")
+      render "new"
+    end
   end
 
   def show

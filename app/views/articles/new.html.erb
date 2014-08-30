@@ -1,1 +1,27 @@
-<h1>Article#new</h1>
+<h1>Add a New Resource</h1>
+
+<%= form_for(@article) do |f| %>
+	<div>
+		<%= f.label :title %><br>
+		<%= f.text_field :title, :autofocus => true %>
+	</div>
+	<div> 
+		<%= f.label :url, "Resource URL" %><br>
+		<%= f.url_field :url, :autofocus => true %>
+	</div>
+	<div>
+		<%= f.label :short_description, "Short Description" %><br>
+		<%= f.text_field :short_description, :autofocus => true %>
+	</div>
+	<div> 
+		<%= f.label :body, "Post" %><br>
+		<%= f.text_field :body, :class => "big-input-box", :autofocus => true %>
+	</div>
+	<div> 
+		<%= f.label :tag_list, "Tags" %><br>
+		<%= f.text_field :tag_list, :autofocus => true %>
+	</div>
+	<%= f.submit %>
+<% end %>
+
+
