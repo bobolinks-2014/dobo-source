@@ -18,6 +18,9 @@ body {
   border-bottom: 1px solid #eee;
 }
 
+.btn-link {
+  color:black
+}
 /*
  * Top navigation
  * Hide default border to remove 1px line.
