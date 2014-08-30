@@ -1,7 +1,7 @@
 <h1 class="page-header">
   Recent Resources
   <% if user_signed_in? %>
-    <button type="button" class="btn btn-success btn-md pull-right"><%= link_to 'Add New Resource', new_article_path %></button>
+    <%= link_to new_article_path do %><button type="button" class="btn btn-success btn-md pull-right">Add New Resource</button> <% end %>
   <% end %>
 </h1>
 
@@ -10,15 +10,9 @@
   <div class="panel panel-default">
     
     <div class="panel-heading">
-      <% if has_url(article) %>
-        <%= link_to article.url do %>
-        <h4 class="article-title"><%= article.title %></h4>
-        <% end %>
-      <% else %>
-        <%= link_to article_comments_path(article) do %>
-        <h4 class="article-title"><%= article.title %></h4>
-        <% end %>
-      <% end %>  
+        <%= link_to article_link(article) do %>
+          <h4 class="article-title"><%= article.title %></h4>
+        <% end %>  
       <% if user_signed_in? %>
       <button class="article-nice-button btn btn-default btn-xs pull-right" type="submit">niiiiiice</button>
       <% end %>

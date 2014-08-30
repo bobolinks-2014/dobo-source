@@ -23,6 +23,11 @@
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
           <li>
+            <%= link_to edit_user_registration_path do %>
+              <%= current_user.email %>
+            <% end %>
+          </li>
+          <li>
             <%= link_to 'Log Out', destroy_user_session_path, :method => :delete %>
           </li>
           <% else %>
@@ -42,7 +47,7 @@
   </div>
   <div class="container-fluid">
     <div class="row">
-    <div class="col-sm-9 col-sm-offset-0 col-md-10 col-md-offset-0 main">
+    <div ng-view class="col-sm-9 col-sm-offset-0 col-md-10 col-md-offset-0 main">
         <% if alert %>
           <div class="alert alert-danger" role="alert"><%= alert %></div>
         <% elsif notice %>
@@ -52,23 +57,51 @@
       </div>
 
       <div class="col-sm-3 col-md-2 sidebar">
+        <h4>Click to expand</h4>
+
         <ul class="nav nav-sidebar">
-          <li class="active"><a href="#">Overview</a></li>
-          <li><a href="#">Reports</a></li>
-          <li><a href="#">Analytics</a></li>
-          <li><a href="#">Export</a></li>
+          <li class="active" data-toggle="collapse" data-target="#phase-0">
+            <a>phase 0</a>
+          </li>
+          <div id="phase-0" class="collapse">
+            <li><a href="#">reports</a></li>
+          </div>
         </ul>
+
         <ul class="nav nav-sidebar">
-          <li><a href="">Nav item</a></li>
-          <li><a href="">Nav item again</a></li>
-          <li><a href="">One more nav</a></li>
-          <li><a href="">Another nav item</a></li>
-          <li><a href="">More navigation</a></li>
+          <li class="active" data-toggle="collapse" data-target="#phase-1">
+            <a>phase 1</a>
+          </li>
+          <div id="phase-1" class="collapse">
+              <% @tags.each do |tag| %>
+               <li>
+                <%= link_to search_path(tag) do %>
+                  <button type="button" class="btn btn-primary btn-xs">
+                  <%= tag.name %>
+                    <span class="article-vote-count badge"><%= tag.count %></span>
+                </button>
+                  <% end %>
+                </li>
+               <% end %>
+          </div>
         </ul>
+
         <ul class="nav nav-sidebar">
-          <li><a href="">Nav item again</a></li>
-          <li><a href="">One more nav</a></li>
-          <li><a href="">Another nav item</a></li>
+          <li class="active" data-toggle="collapse" data-target="#phase-2">
+            <a>phase 2</a>
+          </li>
+          <div id="phase-2" class="collapse">
+            <li><a href="#">reports</a></li>
+          </div>
+        </ul>
+
+        <ul class="nav nav-sidebar">
+          <li class="active" data-toggle="collapse" data-target="#phase-3">
+            <a>phase 3</a>
+          </li>
+          <div id="phase-3" class="collapse">
+            <li><a href="#">reports</a></li>
+          </div>
         </ul>
       </div>
     </div>
