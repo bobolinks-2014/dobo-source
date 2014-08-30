@@ -11,6 +11,14 @@ $(document).ready(function() {
    var query = $('#search-query').val();
    searchArticles(query);
   });
+
+ $(".article-nice-button").on("click", function (event){
+  buttonColor = $('.article-nice-button').css('background-color')
+  if (buttonColor != "rgb(224, 224, 224)") {
+    updateVoteCount();
+  }
+ });
+
 });
 
 function searchArticles(query) {
@@ -38,4 +46,10 @@ function addFoundArticles(articles, query) {
 function notFound(query) {
   $('#search-bar').trigger("reset");
   $('.main').prepend("<div class='alert alert-danger' role='alert'>Sorry, no results for <strong>"+ query+"</stron></div>"); 
+}
+
+function updateVoteCount() {
+  var request = $.ajax({
+    url: "/article/:article_id/"
+  });
 }
