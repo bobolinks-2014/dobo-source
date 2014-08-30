@@ -29,7 +29,7 @@ feature 'User Creation' do
   scenario 'User cannot sign up with an email that already exists in the database' do
     create_user
     visit root_path
-    click_on 'sign up'
+    click_on 'Sign Up'
     fill_in "Email", with: "email@example.com"
     fill_in "Password", with: "bobbobbob"
     fill_in "Password confirmation", with: "bobbobbob"
@@ -42,7 +42,7 @@ feature 'User login' do
   scenario 'an existing user can login' do
     create_user
     visit root_path
-    click_on 'log in'
+    click_on 'Log In'
     fill_in "Email", with: "email@example.com"
     fill_in "Password", with: "asdfasdf"
     click_on "Sign in"
@@ -54,11 +54,11 @@ feature 'User logout' do
   scenario 'a currently logged in user can logout' do
     create_user
     visit root_path
-    click_on 'log in'
+    click_on 'Log In'
     fill_in "Email", with: "email@example.com"
     fill_in "Password", with: "asdfasdf"
     click_on "Sign in"
-    click_on 'log out'
+    click_on 'Log Out'
     expect(page).to have_content("Signed out successfully.")
   end
 end

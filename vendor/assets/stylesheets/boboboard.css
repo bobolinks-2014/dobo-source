@@ -5,6 +5,7 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
   padding-top: 50px;
+  font-family: 'PT Serif';
 }
 
 
@@ -21,6 +22,7 @@ body {
  * Top navigation
  * Hide default border to remove 1px line.
  */
+
 .navbar-fixed-top {
   border: 0;
 }
@@ -44,8 +46,7 @@ body {
     padding: 20px;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: #f5f5f5;
-    border-left: 1px solid #eee;
+    background-color: #fff;
   }
 }
 
@@ -63,7 +64,7 @@ body {
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
   color: #fff;
-  background-color: #428bca;
+  background-color: #ECC400;
 }
 
 
@@ -81,7 +82,7 @@ body {
   }
 }
 .main .page-header {
-  margin-top: 0;
+  margin-top: 10px;
 }
 
 
@@ -102,4 +103,39 @@ body {
 .placeholder img {
   display: inline-block;
   border-radius: 50%;
+}
+
+.article-title {
+  display: inline-block;
+  font-weight: bold;
+}
+
+.article-vote-count {
+  display: inline-block;
+  background-color: red;
+  margin: 5px 2px;
+}
+
+.article-nice-button {
+  display: inline-block;
+  margin: 0 5px;
+  padding: 5px;
+}
+
+.article-details {
+  color: #B8B295;
+}
+
+input {
+  border-radius: 5px;
+  width: 400px;
+  height: 40px;
+  margin-bottom: 10px;
+  padding: 5px;
+  font-size: 1.3em;
+}
+
+#user_remember_me {
+  width: 25px;
+  height: 25px;
 }
