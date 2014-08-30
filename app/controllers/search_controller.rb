@@ -1,9 +1,8 @@
 class SearchController < ApplicationController
   respond_to :json, :html
-  #TODO: add tests for controller
   #TODO: respond to html as well
   def search
-    @articles = Article.tagged_with(get_params)
+    @articles = Article.tagged_with(get_params, any: true)
     if @articles == []
       respond_with @articles, status: 404
     else  
@@ -14,7 +13,7 @@ class SearchController < ApplicationController
   private
 
   def get_params
-    params[:query].split(" ")
+    params[:query].split(/[\s,\,]/).delete_if {|tag| tag == ""}
   end
 
 end
