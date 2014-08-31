@@ -13,6 +13,7 @@
 		<%= f.label :short_description, "Short Description" %><br>
 		<%= f.text_field :short_description, :autofocus => true %>
 	</div>
+
 	<div>	<label class="checkbox-inline" for="phase_tag[]">
       <input id="inlineCheckbox1" name="phase_tag[]" type="checkbox" value="phase0" />Phase 0
     </label>
@@ -31,13 +32,14 @@
       <input name="phase_tag[]" id="inlineCheckbox5" type="checkbox" value="alumni" />Alumni</label>
   </div>
   <br>
+
 	<div> 
 		<%= f.label :body, "Post" %><br>
 		<%= f.text_field :body, :class => "big-input-box", :autofocus => true %>
 	</div>
 	<div> 
 		<%= f.label :tag_list, "Tags" %><br>
-		<%= f.text_field :tag_list, :autofocus => true %>
+		<%= f.text_area :tag_list, :autofocus => true %>
 	</div>
 	<%= f.submit %>
 <% end %>
