@@ -18,6 +18,9 @@ body {
   border-bottom: 1px solid #eee;
 }
 
+.btn-link {
+  color:black
+}
 /*
  * Top navigation
  * Hide default border to remove 1px line.
@@ -108,21 +111,22 @@ body {
 .article-title {
   display: inline-block;
   font-weight: bold;
+  color:black;
 }
 
-.article-vote-count {
+.article-vote-count, .comment-vote-count {
   display: inline-block;
   background-color: red;
   margin: 5px 2px;
 }
 
-.article-nice-button {
+.article-nice-button, .comment-nice-button {
   display: inline-block;
   margin: 0 5px;
   padding: 5px;
 }
 
-.article-details {
+.article-details, .comment-details {
   color: #B8B295;
 }
 
@@ -138,4 +142,15 @@ input {
 #user_remember_me {
   width: 25px;
   height: 25px;
+}
+
+.vote-message {
+  display: inline-block;
+  margin-left: 63%;
+  color: #a94442;
+}
+
+.comment {
+  margin: 10px;
+  border-bottom: dotted 1px gray;
 }

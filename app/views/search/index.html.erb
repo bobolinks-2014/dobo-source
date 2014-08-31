@@ -1,10 +1,3 @@
-<h1 class="page-header">
-  Recent Resources
-  <% if user_signed_in? %>
-    <%= link_to new_article_path do %><button type="button" class="btn btn-success btn-md pull-right">Add New Resource</button> <% end %>
-  <% end %>
-</h1>
-
 <% @articles.each do |article| %>
 
   <div class="panel panel-default">
@@ -14,7 +7,6 @@
           <h4 class="article-title"><%= article.title %></h4>
         <% end %>  
       <% if user_signed_in? %>
-      <div class="vote-message"><p> </p></div>
       <button class="article-nice-button btn btn-default btn-xs pull-right" type="submit">niiiiiice</button>
       <% end %>
       <h3 class="article-vote-count pull-right badge"><%= article.votes.count %></h3>

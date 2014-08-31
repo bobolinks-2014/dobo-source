@@ -1,0 +1,47 @@
+<h1 class="page-header">
+  <%= @article.title.upcase %>
+  <%= link_to root_path, class: "btn-link" do %>
+    <button class="btn btn-xs pull-right">Back To Articles</button>
+  <% end %>
+</h1>
+
+<p class="lead">
+  <%= @article.short_description %>
+</p>
+
+<% if has_body(@article) %>
+  <p>
+    <%= @article.body %>
+  </p> 
+<% end %>
+
+<% if has_tags(@article) %>
+  <% @article.tag_list.each do |tag| %>
+    <button id="search-query" class="btn btn-warning btn-xs" onclick="searchArticles('<%= tag %>')"><%= tag %></button>
+  <% end %>
+<% end %>
+<hr>
+<%= render partial: "comment_form" %>
+<hr>
+<div class="comment-session">
+  <span></span>
+  <% @article.comments.reverse.each do |comment| %>
+  
+  <div class="comment">
+  
+     <% if user_signed_in? %>
+      <div class="vote-message"><p> </p></div>
+      <button class="comment-nice-button btn btn-default btn-xs pull-right" type="submit">niiiiiice</button>
+      <% end %>
+      <h3 class="comment-vote-count pull-right badge"><%= comment.votes.count %></h3>
+    <p><%= comment.body %></p>
+    
+     <div class="comment-details panel-body">
+      <small>posted by: <%= comment.commenter.email %> 
+       | created on: <%= date(comment) %></small>
+    </div>
+
+  </div>
+  
+  <% end %>
+</div>
