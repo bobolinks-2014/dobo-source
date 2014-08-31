@@ -1,4 +1,18 @@
-<h1>This is the show page!</h1>
-<h1>
-<%= @article.title %>
-</h1>
+<h1><%= @article.title %></h1>
+<% if user_signed_in? && @article.poster == current_user %>
+	<button type="button" class="btn btn-success btn-md pull-right">  <%= link_to 'Edit this Resource', edit_article_path %></button>
+<% end %>
+
+<h3> <%= @article.votes.count %></h3>
+
+<h3> <%= @article.short_description %> </h3>
+
+<small> <%= @article.tag_list %> </small>
+
+<div> 
+	<p> <%= @article.body %> </p>
+</div>
+
+<div class="article-details panel-body">
+  <small>posted by: <%= @article.poster.email %> | #of comments | date</small>
+</div>
