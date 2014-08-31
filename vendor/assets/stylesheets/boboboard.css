@@ -111,6 +111,7 @@ body {
 .article-title {
   display: inline-block;
   font-weight: bold;
+  color:black;
 }
 
 .article-vote-count {

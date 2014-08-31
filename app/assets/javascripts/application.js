@@ -1,16 +1,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap.min
-//= require turbolinks
 //= require_tree .
 
 $(document).ready(function() {
 //search
- $("#search-bar").on("submit", function (event) {
-   event.preventDefault();
-   var query = $('#search-query').val();
-   searchArticles(query);
+  $("#search-bar").on("submit", function (event) {
+    //event.preventDefault();
+    var query = $('#search-query').val();
+    searchArticles(query);
   });
+
 });
 
 function searchArticles(query) {
@@ -38,4 +38,19 @@ function addFoundArticles(articles, query) {
 function notFound(query) {
   $('#search-bar').trigger("reset");
   $('.main').prepend("<div class='alert alert-danger' role='alert'>Sorry, no results for <strong>"+ query+"</stron></div>"); 
+}
+function sendComment(commentParams, id) {
+  var sendRequest = $.ajax({
+    url: "/articles/"+id+"/comments",
+    type: "POST",
+    data: commentParams
+  });
+  sendRequest.done(function(response){
+    addComment(response); 
+  });
+  return sendRequest;
+}
+
+function addComment(comment) {
+  $(".comment-session").prepend("<p>"+comment.commenter+"</p><p>"+comment.comment+"</p>")
 }
