@@ -114,19 +114,19 @@ body {
   color:black;
 }
 
-.article-vote-count {
+.article-vote-count, .comment-vote-count {
   display: inline-block;
   background-color: red;
   margin: 5px 2px;
 }
 
-.article-nice-button {
+.article-nice-button, .comment-nice-button {
   display: inline-block;
   margin: 0 5px;
   padding: 5px;
 }
 
-.article-details {
+.article-details, .comment-details {
   color: #B8B295;
 }
 
@@ -144,8 +144,13 @@ input {
   height: 25px;
 }
 
-.vote-message{
+.vote-message {
   display: inline-block;
   margin-left: 63%;
   color: #a94442;
+}
+
+.comment {
+  margin: 10px;
+  border-bottom: dotted 1px gray;
 }
