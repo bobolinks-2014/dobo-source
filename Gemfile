@@ -35,6 +35,7 @@ group :development, :test do
   gem 'launchy'
   gem 'shoulda-matchers', require: false
   gem 'faker'
+  gem 'capybara-webkit'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
