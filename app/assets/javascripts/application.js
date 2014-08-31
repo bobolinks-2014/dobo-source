@@ -80,7 +80,6 @@ request.done(function(response){
   vote = response.vote
   message = response.message
   if (response.voted === 1) {
-    debugger;
     search = "[href*='articles/" + vote.tally_id+ "']";
     $("a"+search).parent().children('button').remove();
     var currentVoteCount = parseInt($("a"+search).parent().children('h3').text());
