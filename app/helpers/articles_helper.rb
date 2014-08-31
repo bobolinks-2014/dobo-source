@@ -4,6 +4,10 @@ module ArticlesHelper
     article.body != nil
   end
   
+  def is_owner_of_article(article)
+    current_user == article.poster
+  end
+
   def article_link(article)
     if article.url == "" || article.url == nil
         article_comments_path(article)

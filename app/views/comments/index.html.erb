@@ -5,6 +5,14 @@
   <% end %>
 </h1>
 
+<% if is_owner_of_article(@article) %>
+	<%= link_to edit_article_path(@article) do %>
+    <button type="button" class="btn btn-success btn-md pull-right"> 
+      Edit this Resource
+    </button>
+  <% end %>
+<% end %>
+
 <p class="lead">
   <%= @article.short_description %>
 </p>
