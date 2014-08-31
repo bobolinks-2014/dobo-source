@@ -11,6 +11,14 @@ $(document).ready(function() {
     searchArticles(query);
   });
 
+ //just for articles on main page
+ $(".article-nice-button").on("click", function (event){
+  articleUrl = /articles\/\d/.exec($(this).parent().children('a').attr('href'))
+  buttonColor = $('.article-nice-button').css('background-color')
+  if (buttonColor != "rgb(224, 224, 224)") {
+    updateVoteCount(articleUrl);
+  }
+ });
 
 });
 
@@ -56,3 +64,22 @@ function sendComment(commentParams, id) {
 function addComment(comment) {
   $(".comment-session").prepend("<p>"+comment.commenter+"</p><p>"+comment.comment+"</p>")
 }
+
+function updateVoteCount(articleUrl) {
+var vote = {
+  tally_id: parseInt(/\d/.exec(articleUrl)[0]),
+  tally_type: "Article"
+};
+
+var request = $.ajax({
+  url: articleUrl + "/votes",
+  type: "POST",
+  data: {vote: vote},
+  dataType: "JSON"
+});
+
+request.done(function(response){
+  search = "[href*='articles/" + response.tally_id+ "']"
+  $("a"+search).parent().children('button').css('background-color', '#73CBD1')
+})
+
