@@ -29,6 +29,7 @@ GEM
       tzinfo (~> 1.1)
     acts-as-taggable-on (3.3.0)
       activerecord (>= 3, < 5)
+    addressable (2.3.6)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
     bcrypt-ruby (3.1.5)
@@ -75,6 +76,8 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    launchy (2.4.2)
+      addressable (~> 2.3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -178,6 +181,7 @@ DEPENDENCIES
   faker
   jbuilder (~> 2.0)
   jquery-rails
+  launchy
   pg
   rails (= 4.1.5)
   rails_12factor

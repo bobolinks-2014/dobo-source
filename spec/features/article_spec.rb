@@ -8,7 +8,7 @@ feature 'Article Creation' do
 		visit new_article_path
 		fill_in "Title", with: "Bobo the Bobolink wins the game!"
 		fill_in "Short Description", with: "New Short Description"
-		check 'phase-1-checkbox'
+		check 'inlineCheckbox2'
 		fill_in "Post", with: "New Post"
 		click_on "Create Article"
 		expect(page).to have_content("Bobo the Bobolink wins the game!")
