@@ -93,7 +93,6 @@ request.done(function(response){
     $("a"+search).next().children('p').text(message);
   }
   else if (response.voted === 0) {
-    debugger;
     search = "[href*='articles/" + vote.tally_id+ "']";
     $("a"+search).parent().children('button').remove();
     $("a"+search).next().children('p').text(message);
