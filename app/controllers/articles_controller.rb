@@ -44,8 +44,9 @@ class ArticlesController < ApplicationController
     if params["phase_tag"] == nil
       errors = ["You must select a phase tag!"]
       flash.now[:alert] = errors.join(', ')
-      render "new"
+      render "edit"
     elsif @article.update(article_params)
+      remove_old_phase_tags(@article)
       params["phase_tag"].each do |phase_tag|
         @article.tag_list.add(phase_tag)
       end
@@ -63,6 +64,14 @@ class ArticlesController < ApplicationController
     redirect_to root_path
   end
 
+  def remove_old_phase_tags(article)
+    previous_phase_tags = ['phase0', 'phase1', 'phase2', 'phase3', 'alumni']
+      article.tag_list.each do |tag|
+        if previous_phase_tags.include?(tag)
+          article.tag_list.remove(tag)
+        end
+      end
+  end
 
   private
   
