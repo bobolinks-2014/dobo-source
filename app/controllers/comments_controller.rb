@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_filter :authenticate_user!, only: [:create]
-  #TODO: Ask Nate why this is happening
-
+  respond_to :json
+  
   def index
     @article = Article.find(params[:article_id])
     @comment = Comment.new
@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     if @comment.save
       @comment.update(commenter: current_user)
         respond_to do |format|
-          format.json { render json: {comment: @comment.body, commenter: @comment.commenter.email, success: 1} }
+          format.json { render json: {id: @comment.id, comment: @comment.body, commenter: @comment.commenter.email, success: 1} }
         end
     end
   end
