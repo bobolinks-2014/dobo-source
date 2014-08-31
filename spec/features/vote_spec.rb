@@ -36,7 +36,7 @@ feature 'voting on comments on article page' do
 	before do
 		login(user)
 		Comment.create(article: article, user_id: user.id, body: "this is a comment")
-		visit article_path(article)
+		visit article_comments_path(article)
 	end
 
 	scenario 'user votes on a comment for the first time', js: true do
@@ -46,11 +46,12 @@ feature 'voting on comments on article page' do
 		expect(page).to have_content(1)	
 	end
 
-	scenario 'user votes on a comment for the first time', js: true do
+	scenario 'user votes on a comment for the second time', js: true do
 		click_on("niiiiiice")
-		visit article_path
+		visit article_comments_path(article)
+		click_on("niiiiiice")
 		wait_for_ajax
-		expect(page).to have_content("Thanks for voting!")
+		expect(page).to have_content("You previously voted on that")
 		expect(page).to have_content(1)	
 	end
 
