@@ -3,8 +3,11 @@ class VotesController < ApplicationController
 	respond_to :json
 	
 	def create
+		p "4"*150
+		p params
+		p vote_params
 		@vote = Vote.new(vote_params)
-		
+		p @vote
 		respond_to do |format|
 			
 			if already_voted?
