@@ -26,7 +26,22 @@
 <div class="comment-session">
   <span></span>
   <% @article.comments.reverse.each do |comment| %>
-    <p><%= comment.commenter.email %></p>
+    
+  <div class="comment">
+    <input type="hidden" name="comment_id" value="<%=comment.id%>">
+    <% if user_signed_in? %>
+      <div class="vote-message"><p> </p></div>
+      <button class="comment-nice-button btn btn-default btn-xs pull-right" type="submit">niiiiiice</button>
+      <% end %>
+      <h3 class="comment-vote-count pull-right badge"><%= comment.votes.count %></h3>
     <p><%= comment.body %></p>
+    
+     <div class="comment-details panel-body">
+      <small>posted by: <%= comment.commenter.email %> 
+       | created on: <%= date(comment) %></small>
+    </div>
+
+  </div>
+  
   <% end %>
 </div>
