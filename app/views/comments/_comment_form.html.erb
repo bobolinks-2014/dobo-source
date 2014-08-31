@@ -1,0 +1,7 @@
+<%= form_for @comment, url: article_comments_path, :html => {:class => "comment-form", :id => "new_comment"} do |f| %>
+  <div class="form-group">
+    <%= f.text_area :body, :placeholder => "Enter comment", class: "form-control"%>
+  </div>
+    <%= f.hidden_field :article_id, :value => @article.id, id: "art-id" %>
+    <%= f.submit class: "btn" %>
+<% end %>
