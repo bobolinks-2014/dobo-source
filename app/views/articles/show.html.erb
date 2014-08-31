@@ -1,21 +1,18 @@
-<h1 class="page-header">
-  <%= @article.title.upcase %>
-</h1>
-
-<p class="lead">
-  <%= @article.short_description %>
-</p>
-
-<% if has_body(@article) %>
-  <p>
-    <%= @article.body %>
-  </p> 
+<h1><%= @article.title %></h1>
+<% if user_signed_in? && @article.poster == current_user %>
+	<button type="button" class="btn btn-success btn-md pull-right">  <%= link_to 'Edit this Resource', edit_article_path %></button>
 <% end %>
 
-<% if has_tags(@article) %>
-  <% @article.tag_list.each do |tag| %>
-    <button id="search-query" class="btn btn-warning btn-xs" onclick="searchArticles('<%= tag %>')"><%= tag %></button>
-  <% end %>
-<% end %>
+<h3> <%= @article.votes.count %></h3>
 
-<%= render partial: "comment_form" %>
+<h3> <%= @article.short_description %> </h3>
+
+<small> <%= @article.tag_list %> </small>
+
+<div> 
+	<p> <%= @article.body %> </p>
+</div>
+
+<div class="article-details panel-body">
+  <small>posted by: <%= @article.poster.email %> | #of comments | date</small>
+</div>

@@ -57,7 +57,7 @@ describe ArticlesController do
 		
 		describe 'CAN edit / delete their own articles' do 
 			#must create the view before further investigation
-		  pending 'should have access to the article#edit page when article belongs to user, response 200' do
+		  it 'should have access to the article#edit page when article belongs to user, response 200' do
 		    user = create_logged_in_user
 		    user.articles.create(title: "asdf", url: "asdf", short_description: "asdf")
 		    visit edit_article_path(Article.last)
@@ -67,6 +67,9 @@ describe ArticlesController do
 		  end
 
 		  pending 'should have access to the article#destroy page when article belongs to user, response 200' do
+		    user = create_logged_in_user
+		    user.articles.create(title: "asdf", url: "asdf", short_description: "asdf")
+		    visit edit_article_path(Article.last)
 		    get :destroy
 		    expect(response.status).to eq 200
 		  end
