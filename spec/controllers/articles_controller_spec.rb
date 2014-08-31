@@ -61,7 +61,6 @@ describe ArticlesController do
 		    user = create_logged_in_user
 		    user.articles.create(title: "asdf", url: "asdf", short_description: "asdf")
 		    visit edit_article_path(Article.last)
-		    save_and_open_page
 		    expect(response.status).to eq 200
 		    logout
 		  end
