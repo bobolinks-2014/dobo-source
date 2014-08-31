@@ -8,7 +8,7 @@ feature 'Article Creation' do
 		visit new_article_path
 		fill_in "Title", with: "Bobo the Bobolink wins the game!"
 		fill_in "Short Description", with: "New Short Description"
-		check 'inlineCheckbox2'
+		check 'check_box_phase_0'
 		fill_in "Post", with: "New Post"
 		click_on "Create Article"
 		expect(page).to have_content("BOBO THE BOBOLINK WINS THE GAME!")
@@ -33,7 +33,7 @@ feature 'Article Editing' do
 		article = Article.create(poster: user, title: "Bobo the Bobolink wins the game!", short_description: "It was an exciting game")
 		visit edit_article_path(article)
 		fill_in "Short Description", with: "The game was amazing!  Bobo saved the day!"
-		check 'phase-1-checkbox'
+		check 'check_box_phase_1'
 		click_on "Update Article"
 		expect(page).to have_content("The game was amazing!  Bobo saved the day!")
 	end
