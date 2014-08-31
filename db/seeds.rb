@@ -9,11 +9,19 @@ User.create!(first_name: "Bob", last_name: "Bobson", cohort_animal: "Bobolinks",
 end
 
 100.times do
-	Article.create(title: Faker::Company.catch_phrase, short_description: Faker::Lorem.sentence(2), body: Faker::Lorem.sentence(9), user_id: User.find(rand(1..50)).id)
+	article = Article.create(title: Faker::Company.catch_phrase, short_description: Faker::Lorem.sentence(2), body: Faker::Lorem.sentence(9), user_id: User.find(rand(1..50)).id)
+	article.tag_list
 end
 
+phase_tags = ["phase0", "phase1", "phase2", "phase3", "alumni"]
+general_tags = ["css", "html", "javascript", "ruby", "ajax", "webkit", "ux", "acts_as_taggable_on", "ruby_gems", "agile", "coffescript", "java", "jobs"]
+
 100.times do
-	Article.create(title: Faker::Company.catch_phrase, short_description: Faker::Lorem.sentence(2), url: Faker::Internet.url, user_id: rand(1..50))
+	article = Article.create(title: Faker::Company.catch_phrase, short_description: Faker::Lorem.sentence(2), url: Faker::Internet.url, user_id: rand(1..50))
+	article.tag_list.add(phase_tags.sample)
+	article.save
+	article.tag_list.add(general_tags.sample(rand(1..8)).join(', '), parse: true)
+	article.save
 end
 
 1000.times do
@@ -25,7 +33,9 @@ end
 	vote.save
 end
 
-4000.times do
+8000.times do
 	vote = Vote.new(tally_type: "Comment", tally_id: rand(1..1000), user_id: rand(1..50))
 	vote.save
 end
+
+
