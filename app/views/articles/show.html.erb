@@ -1,6 +1,6 @@
 <h1><%= @article.title %></h1>
 <% if user_signed_in? && @article.poster == current_user %>
-	<button type="button" class="btn btn-success btn-md pull-right">  <%= link_to 'Edit this Resource', edit_article_path %></button>
+	<button  type="button" class="btn btn-success btn-md pull-right">  <%= link_to 'Edit this Resource', edit_article_path %></button>
 <% end %>
 
 <h3> <%= @article.votes.count %></h3>

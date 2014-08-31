@@ -7,7 +7,7 @@
 
 <% if is_owner_of_article(@article) %>
 	<%= link_to edit_article_path(@article) do %>
-    <button type="button" class="btn btn-success btn-md pull-right"> 
+    <button id="edit-article-button" type="button" class="btn btn-success btn-md pull-right"> 
       Edit this Resource
     </button>
   <% end %>
