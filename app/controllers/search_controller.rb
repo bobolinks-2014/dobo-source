@@ -8,9 +8,10 @@ class SearchController < ApplicationController
     else
       render json: {
         'html' => render_to_string(
-          partial: 'results', 
-          locals: {articles: @articles})
-      }, status: 200
+          partial: 'search/results', 
+          locals: {articles: @articles}),
+        status: 200
+      }
     end
 
   end

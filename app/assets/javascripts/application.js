@@ -42,7 +42,6 @@ function searchArticles(query) {
   });
   request.done(function(response){
     addFoundArticles(response, query); 
-    event.stopPropagation();
   });
 
   return request;
