@@ -34,6 +34,8 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'shoulda-matchers', require: false
   gem 'faker'
+  gem 'capybara-webkit'
+  gem 'launchy'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
