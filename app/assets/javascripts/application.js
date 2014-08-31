@@ -77,10 +77,23 @@ var request = $.ajax({
 });
 
 request.done(function(response){
-  search = "[href*='articles/" + response.tally_id+ "']";
-  $("a"+search).parent().children('button').remove();
-  var currentVoteCount = parseInt($("a"+search).parent().children('h3').text());
-  $("a"+search).parent().children('h3').text(currentVoteCount + 1);
-})
+  vote = response.vote
+  message = response.message
+  if (response.voted === 1) {
+    debugger;
+    search = "[href*='articles/" + vote.tally_id+ "']";
+    $("a"+search).parent().children('button').remove();
+    var currentVoteCount = parseInt($("a"+search).parent().children('h3').text());
+    $("a"+search).parent().children('h3').text(currentVoteCount + 1);
+    $("a"+search).next().children('p').text(message);
+  }
+  else if (response.voted === 0) {
+    search = "[href*='articles/" + vote.tally_id+ "']";
+    $("a"+search).parent().children('button').remove();
+    var currentVoteCount = parseInt($("a"+search).parent().children('h3').text());
+    $("a"+search).parent().children('h3').text(currentVoteCount);
+    $("a"+search).next().children('p').text(message);
+  }
+});
 
 }
