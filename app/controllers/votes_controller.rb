@@ -4,7 +4,7 @@ class VotesController < ApplicationController
 	
 	def create
 		@vote = Vote.new(vote_params)
-		
+
 		respond_to do |format|
 			
 			if already_voted?
