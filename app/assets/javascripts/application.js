@@ -13,11 +13,9 @@ $(document).ready(function() {
 
  //just for articles on main page
  $(".article-nice-button").on("click", function (event){
+  event.preventDefault();
   articleUrl = /articles\/\d/.exec($(this).parent().children('a').attr('href'))
-  buttonColor = $('.article-nice-button').css('background-color')
-  if (buttonColor != "rgb(224, 224, 224)") {
-    updateVoteCount(articleUrl);
-  }
+  updateVoteCount(articleUrl);
  });
 
 });
@@ -79,7 +77,10 @@ var request = $.ajax({
 });
 
 request.done(function(response){
-  search = "[href*='articles/" + response.tally_id+ "']"
-  $("a"+search).parent().children('button').css('background-color', '#73CBD1')
+  search = "[href*='articles/" + response.tally_id+ "']";
+  $("a"+search).parent().children('button').remove();
+  var currentVoteCount = parseInt($("a"+search).parent().children('h3').text());
+  $("a"+search).parent().children('h3').text(currentVoteCount + 1);
 })
 
+}
