@@ -143,3 +143,9 @@ input {
   width: 25px;
   height: 25px;
 }
+
+.vote-message{
+  display: inline-block;
+  margin-left: 63%;
+  color: #a94442;
+}
