@@ -11,7 +11,7 @@ feature 'Article Creation' do
 		check 'inlineCheckbox2'
 		fill_in "Post", with: "New Post"
 		click_on "Create Article"
-		expect(page).to have_content("Bobo the Bobolink wins the game!")
+		expect(page).to have_content("BOBO THE BOBOLINK WINS THE GAME!")
 	end
 
 	scenario 'an article cannot be created without the user selecting a phase tag' do

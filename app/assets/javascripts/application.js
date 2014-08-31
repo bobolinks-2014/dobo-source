@@ -54,21 +54,6 @@ function notFound(query) {
   $('.main').prepend("<div class='alert alert-danger' role='alert'>Sorry, no results for <strong>"+ query+"</stron></div>"); 
 }
 
-function sendComment(commentParams, id) {
-  var sendRequest = $.ajax({
-    url: "/articles/"+id+"/comments",
-    type: "POST",
-    data: commentParams
-  });
-  sendRequest.done(function(response){
-    addComment(response); 
-  });
-  return sendRequest;
-}
-
-function addComment(comment) {
-  $(".comment-session").prepend("<p>"+comment.commenter+"</p><p>"+comment.comment+"</p>")
-}
 
 function updateArticleVoteCount(articleUrl) {
 var vote = {
