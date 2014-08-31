@@ -25,7 +25,7 @@
 
 <% if has_tags(@article) %>
   <% @article.tag_list.each do |tag| %>
-    <button id="search-query" class="btn btn-warning btn-xs" onclick="searchArticles('<%= tag %>')"><%= tag %></button>
+    <button id="search-query" class="btn btn-warning btn-xs side-bar-tag"><span><%= tag %></span></button>
   <% end %>
 <% end %>
 <hr>

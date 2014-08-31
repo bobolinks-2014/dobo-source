@@ -64,7 +64,13 @@
             <a>phase 0</a>
           </li>
           <div id="phase-0" class="collapse">
-            <li><a href="#">reports</a></li>
+              <br />
+              <% @tags.each do |tag| %>
+                 <button type="button" style="margin-bottom: 5px;" class="btn btn-xs side-bar-tag">
+                  <span id="tag-name"><%= tag.name %></span>
+                  <span class="article-vote-count badge"><%= tag.count %></span>
+                </button>
+              <% end %>
           </div>
         </ul>
 
@@ -73,16 +79,13 @@
             <a>phase 1</a>
           </li>
           <div id="phase-1" class="collapse">
+              <br />
               <% @tags.each do |tag| %>
-               <li>
-                <%= link_to search_path(tag) do %>
-                  <button type="button" class="btn btn-primary btn-xs">
-                  <%= tag.name %>
-                    <span class="article-vote-count badge"><%= tag.count %></span>
+                 <button type="button" style="margin-bottom: 5px;" class="btn btn-xs side-bar-tag">
+                  <span id="tag-name"><%= tag.name %></span>
+                  <span class="article-vote-count badge"><%= tag.count %></span>
                 </button>
-                  <% end %>
-                </li>
-               <% end %>
+              <% end %>
           </div>
         </ul>
 
@@ -91,7 +94,13 @@
             <a>phase 2</a>
           </li>
           <div id="phase-2" class="collapse">
-            <li><a href="#">reports</a></li>
+              <br />
+              <% @tags.each do |tag| %>
+                 <button type="button" style="margin-bottom: 5px;" class="btn btn-xs side-bar-tag">
+                  <span id="tag-name"><%= tag.name %></span>
+                  <span class="article-vote-count badge"><%= tag.count %></span>
+                </button>
+              <% end %>
           </div>
         </ul>
 
@@ -100,7 +109,13 @@
             <a>phase 3</a>
           </li>
           <div id="phase-3" class="collapse">
-            <li><a href="#">reports</a></li>
+              <br />
+              <% @tags.each do |tag| %>
+                 <button type="button" style="margin-bottom: 5px;" class="btn btn-xs side-bar-tag">
+                  <span id="tag-name"><%= tag.name %></span>
+                  <span class="article-vote-count badge"><%= tag.count %></span>
+                </button>
+              <% end %>
           </div>
         </ul>
       </div>

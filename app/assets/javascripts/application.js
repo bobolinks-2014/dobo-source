@@ -27,6 +27,9 @@ $(document).ready(function() {
  });
 
  // TODO: sidebar: bind tag buttons to 
+ $('.side-bar-tag').on('click', function (event) {
+    searchArticles($(this).children().first().text());             
+ });
 });
 
 function searchArticles(query) {
@@ -53,7 +56,7 @@ function addFoundArticles(articles, query) {
   main_div = $('.col-sm-9.col-sm-offset-0.col-md-10.col-md-offset-0.main')
   main_div.empty()
   main_div.append(parsed_html);
-  $('.main').prepend("<h1 class='page-header alert alert-success' role='alert'>Showing results for <strong>"+ query +"</strong></h1>"); 
+  $('.main').prepend("<h4 class='page-header alert alert-success' role='alert'>Showing results for <strong>"+ query +"</strong></h4>"); 
 }
 
 function notFound(query) {
