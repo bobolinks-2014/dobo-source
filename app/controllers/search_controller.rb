@@ -2,14 +2,18 @@ class SearchController < ApplicationController
   respond_to :json, :html
   #TODO: respond to html as well
   def search
-    @articles = Article.tagged_with(get_params, any: true)
+    @articles = Article.tagged_with(get_params, any: true).order(:votes_count => :desc)
     if @articles == []
       respond_with @articles, status: 404
-    else  
-      respond_with @articles, status: 200
+    else
+      render json: {
+        'html' => render_to_string(
+          partial: 'results', 
+          locals: {articles: @articles})
+      }, status: 200
     end
-  end
 
+  end
   private
 
   def get_params
