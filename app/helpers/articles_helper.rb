@@ -27,4 +27,10 @@ module ArticlesHelper
   def date(article)
     "#{article.created_at.month}/#{article.created_at.day}/#{article.created_at.year}"
   end
+
+  def check_for_phase_tag(article, value)
+    article.tag_list.include?(value)
+  end
+
+
 end
