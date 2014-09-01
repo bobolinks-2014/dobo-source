@@ -78,21 +78,15 @@ function updateArticleVoteCount(articleId) {
     vote = response.vote
     message = response.message
     if (response.voted === 1) {
-      // search = "[href*='articles/" + vote.tally_id+ "']";
-      // $("a"+search).parent().children('button').remove();
-      // var currentVoteCount = parseInt($("a"+search).parent().children('h3').text());
-      // $("a"+search).parent().children('h3').text(currentVoteCount + 1);
-      // $("a"+search).next().children('p').text(message);
       button_parent = $("button#" + vote.tally_id).parent();
       button_parent.children('button').remove();
       var currentVoteCount = parseInt(button_parent.children('h3').text());
       button_parent.children('h3').text(currentVoteCount + 1);
+      debugger;
       button_parent.children('.vote-message').children('p').text(message)
     }
     else if (response.voted === 0) {
-      // search = "[href*='articles/" + vote.tally_id+ "']";
-      // $("a"+search).parent().children('button').remove();
-      // $("a"+search).next().children('p').text(message);
+      debugger;
       button_parent = $("button#" + vote.tally_id).parent();
       button_parent.children('button').remove();
       button_parent.children('.vote-message').children('p').text(message)
