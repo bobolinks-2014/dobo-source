@@ -82,11 +82,9 @@ function updateArticleVoteCount(articleId) {
       button_parent.children('button').remove();
       var currentVoteCount = parseInt(button_parent.children('h3').text());
       button_parent.children('h3').text(currentVoteCount + 1);
-      debugger;
       button_parent.children('.vote-message').children('p').text(message)
     }
     else if (response.voted === 0) {
-      debugger;
       button_parent = $("button#" + vote.tally_id).parent();
       button_parent.children('button').remove();
       button_parent.children('.vote-message').children('p').text(message)
