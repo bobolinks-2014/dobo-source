@@ -16,12 +16,11 @@ Visit [DoBoCo Source](http://secret-stream-1737.herokuapp.com/) to browse resour
 * [will_paginate](https://github.com/mislav/will_paginate)
 * [rails](https://github.com/rails/rails)
 
-## Configurations
-
-## Examples
-
 ## Contributions
-
+* [Sebastian Radloff](https://github.com/sradloff23)
+* [Joey Sabani](https://github.com/axhi)
+* [Jennie Chamberlin](https://github.com/littleredninja)
+* [David Nanry](https://github.com/DNanry)
 ## Licenses
 The MIT License (MIT)
 
