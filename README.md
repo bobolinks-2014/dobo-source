@@ -7,6 +7,8 @@ Dobo Source is an online community that provides relevant, searchable and phase-
 
 ## Getting Started
 
+Visit [DoBoCo Source](http://secret-stream-1737.herokuapp.com/) to browse resources from the DBC community.  Create a login to add, vote for and comment on resources.  
+
 ## Dependencies
 
 ## Configurations
@@ -15,5 +17,5 @@ Dobo Source is an online community that provides relevant, searchable and phase-
 
 ## Contributions
 
-## Liscenses
+## Licenses
 
