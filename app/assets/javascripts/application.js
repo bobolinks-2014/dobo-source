@@ -20,15 +20,28 @@ $(document).ready(function() {
 
  //upvoting comments on a specific article page
  $(".comment-session").on("click", '.comment-nice-button', function (event){
-  event.preventDefault();
   commentID = parseInt($(this).parent().children('input').val());
   articleUrl = window.location.pathname;
   updateCommentVoteCount(articleUrl, commentID);
  });
 
  $('.side-bar-tag').on('click', function (event) {
-    searchArticles($(this).children().first().text());             
+  var query = $(this).children().first().text();
+  var tempPhase = $(this).parent().attr('id');
+  var newStr = tempPhase.replace(/-/g, "");
+  var querySend = newStr+","+query;
+  searchArticles(querySend);             
  });
+
+ $('.article-tag-search').on('click', function (event) {
+  searchArticles($(this).children().first().text());             
+ });
+
+ $('.comment-session').on('click', '.comment-delete-button', function(event) {
+  var commentId = $(this).parent().find("input[name='comment_id']").val(); 
+  deleteComment(commentId, $(this).parent());
+ });
+
 });
 
 function searchArticles(query) {
