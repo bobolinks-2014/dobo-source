@@ -1,26 +1,31 @@
 <% articles.each do |article| %>
 
-<div class="col-md-6">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-        <%= link_to article_link(article) do %>
-          <h4 class="article-title"><%= article.title %></h4>
-        <% end %>  
-      <% if user_signed_in? %>
-      <div class="vote-message"><p> </p></div>
-      <button id="<%= article.id %>" class="article-nice-button btn btn-default btn-xs pull-right" type="submit">niiiiiice</button>
-      <% end %>
-      <h3 class="article-vote-count pull-right badge"><%= article.votes.count %></h3>
+<div class="col-md-12">      
+
+      <div class="panel panel-default">
+        
+        <div class="panel-heading clearfix">
+            <%= link_to article_link(article) do %>
+              <h4 class="article-title"><%= article.title %></h4>
+            <% end %>  
+          <div class="vote-details pull-right">
+          
+          <% if user_signed_in? %>
+            <button id="<%= article.id %>" class="article-nice-button btn btn-default btn-xs" type="submit">niiiiiice</button>
+          <% end %>
+
+          <span class="article-vote-count pull-right badge"><%= article.votes.count %></span>
+        </div>
+
+       </div> 
+        <div class="panel-body">
+          <%= article.short_description %>
+        </div>
+        
+        <div class="article-details panel-body">
+          <small>posted by: <%= article.poster.email %> | <%= link_to article_comments_path(article) do %> <%= pluralize(article.comments.count, 'comment') %><%end %>
+           | created on: <%= date(article) %></small>
+        </div>
+      </div>
     </div>
-    
-    <div class="panel-body">
-      <%= article.short_description %>
-    </div>
-    
-    <div class="article-details panel-body">
-      <small>posted by: <%= article.poster.email %> | <%= link_to article_comments_path(article) do %> <%= pluralize(article.comments.count, 'comment') %><%end %>
-       | created on: <%= date(article) %></small>
-    </div>
-  </div>
-</div>
 <% end %>
