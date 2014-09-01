@@ -65,7 +65,7 @@
           </li>
           <div id="phase-0" class="collapse">
               <br/>
-              <% @tags.each do |tag| %>
+              <% @tags_0.each do |tag| %>
                  <button type="button" style="margin-bottom: 5px;" class="btn btn-xs side-bar-tag">
                   <span id="tag-name"><%= tag.name %></span>
                   <span class="article-vote-count badge"><%= tag.count %></span>
@@ -80,7 +80,7 @@
           </li>
           <div id="phase-1" class="collapse">
               <br />
-              <% @tags.each do |tag| %>
+              <% @tags_1.each do |tag| %>
                  <button type="button" style="margin-bottom: 5px;" class="btn btn-xs side-bar-tag">
                   <span id="tag-name"><%= tag.name %></span>
                   <span class="article-vote-count badge"><%= tag.count %></span>
@@ -95,7 +95,7 @@
           </li>
           <div id="phase-2" class="collapse">
               <br/>
-              <% @tags.each do |tag| %>
+              <% @tags_2.each do |tag| %>
                  <button type="button" style="margin-bottom: 5px;" class="btn btn-xs side-bar-tag">
                   <span id="tag-name"><%= tag.name %></span>
                   <span class="article-vote-count badge"><%= tag.count %></span>
@@ -110,7 +110,22 @@
           </li>
           <div id="phase-3" class="collapse">
               <br/>
-              <% @tags.each do |tag| %>
+              <% @tags_3.each do |tag| %>
+                 <button type="button" style="margin-bottom: 5px;" class="btn btn-xs side-bar-tag">
+                  <span id="tag-name"><%= tag.name %></span>
+                  <span class="article-vote-count badge"><%= tag.count %></span>
+                </button>
+              <% end %>
+          </div>
+        </ul>
+
+        <ul class="nav nav-sidebar">
+          <li class="active" data-toggle="collapse" data-target="#alumni">
+            <a>alumni</a>
+          </li>
+          <div id="alumni" class="collapse">
+              <br/>
+              <% @tags_a.each do |tag| %>
                  <button type="button" style="margin-bottom: 5px;" class="btn btn-xs side-bar-tag">
                   <span id="tag-name"><%= tag.name %></span>
                   <span class="article-vote-count badge"><%= tag.count %></span>
