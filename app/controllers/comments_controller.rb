@@ -14,6 +14,10 @@ class CommentsController < ApplicationController
         respond_to do |format|
           format.json { render json: {id: @comment.id, comment: @comment.body, commenter: @comment.commenter.email, success: 1} }
         end
+    else
+      respond_to do |format|
+        format.json { render json: {success: 0} }
+        end
     end
   end
 

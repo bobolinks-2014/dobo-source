@@ -19,14 +19,13 @@ $(document).ready(function() {
  });
 
  //upvoting comments on a specific article page
- $(".comment-nice-button").on("click", function (event){
+ $(".comment-session").on("click", '.comment-nice-button', function (event){
   event.preventDefault();
   commentID = parseInt($(this).parent().children('input').val());
   articleUrl = window.location.pathname;
   updateCommentVoteCount(articleUrl, commentID);
  });
 
- // TODO: sidebar: bind tag buttons to 
  $('.side-bar-tag').on('click', function (event) {
     searchArticles($(this).children().first().text());             
  });
@@ -63,7 +62,6 @@ function notFound(query) {
   $('#search-bar').trigger("reset");
   $('.main').prepend("<div class='alert alert-danger' role='alert'>Sorry, no results for <strong>"+ query+"</stron></div>"); 
 }
-
 
 function updateArticleVoteCount(articleId) {
   var vote = {
