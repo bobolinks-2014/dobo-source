@@ -31,11 +31,11 @@
 		<%= label_tag 'phase_tag[]', 'Alumni' %>
 			
 	</div> 
-	<div>
+	<div class="edit-article">
 		<%= f.label :body, "Post" %><br>
-		<%= f.text_field :body, :class => "big-input-box", :autofocus => true %>
+		<%= f.text_area :body, :class => "big-input-box", :autofocus => true %>
 	</div>
-	<div> 
+	<div class="edit-article tags"> 
 		<%= f.label :tag_list, "Tags" %><br>
 		<%= f.text_field :tag_list, :autofocus => true %>
 	</div>
