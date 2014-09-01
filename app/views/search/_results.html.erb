@@ -1,7 +1,7 @@
 <% articles.each do |article| %>
 
+<div class="col-md-6">
   <div class="panel panel-default">
-    
     <div class="panel-heading">
         <%= link_to article_link(article) do %>
           <h4 class="article-title"><%= article.title %></h4>
@@ -20,6 +20,6 @@
       <small>posted by: <%= article.poster.email %> | <%= link_to article_comments_path(article) do %> <%= pluralize(article.comments.count, 'comment') %><%end %>
        | created on: <%= date(article) %></small>
     </div>
-
   </div>
+</div>
 <% end %>
