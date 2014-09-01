@@ -8,6 +8,9 @@ body {
   font-family: 'PT Serif';
 }
 
+.clearfix {
+  overflow: auto;
+}
 
 /*
  * Global add-ons
@@ -67,7 +70,7 @@ body {
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
   color: #fff;
-  background-color: #ECC400;
+  background-color: #EAAF00;
 }
 
 
@@ -111,12 +114,12 @@ body {
 .article-title {
   display: inline-block;
   font-weight: bold;
-  color:black;
+  color: #3E3E47;
 }
 
 .article-vote-count, .comment-vote-count {
   display: inline-block;
-  background-color: red;
+  background-color: #5D5DBD;
   margin: 5px 2px;
 }
 
@@ -127,7 +130,7 @@ body {
 }
 
 .article-details, .comment-details {
-  color: #B8B295;
+  color: #CDCBBA;
 }
 
 input {
@@ -153,4 +156,8 @@ input {
 .comment {
   margin: 10px;
   border-bottom: dotted 1px gray;
+}
+
+.article-nice-button {
+  background-color: #FEFEFE;
 }

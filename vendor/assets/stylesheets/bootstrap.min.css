@@ -619,7 +619,7 @@ a {
   text-decoration: none;
 }
 a:focus, a:hover {
-  color: #B8B295;
+  color: #5D5DBD;
   text-decoration: underline;
 }
 a:focus {
@@ -1964,7 +1964,7 @@ select[multiple].input-lg, textarea.input-lg {
 }
 .btn-default .badge {
   color: #fff;
-  background-color: #333;
+  background-color: #656156;
 }
 .btn-primary {
   color: #fff;
@@ -3329,7 +3329,7 @@ a.label:focus, a.label:hover {
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  background-color: #777;
+  background-color: #656156656156;
   border-radius: 10px;
 }
 .badge:empty {
@@ -3890,7 +3890,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:focus, a.list-g
 }
 .panel-default>.panel-heading .badge {
   color: #f5f5f5;
-  background-color: #333;
+  background-color: #656156;
 }
 .panel-default>.panel-footer+.panel-collapse>.panel-body {
   border-bottom-color: #ddd;

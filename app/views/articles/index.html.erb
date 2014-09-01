@@ -9,15 +9,22 @@
 
   <div class="panel panel-default">
     
-    <div class="panel-heading">
+    <div class="panel-heading clearfix">
         <%= link_to article_link(article) do %>
           <h4 class="article-title"><%= article.title %></h4>
         <% end %>  
       <% if user_signed_in? %>
-      <div class="vote-message"><p> </p></div>
-      <button class="article-nice-button btn btn-default btn-xs pull-right" type="submit">niiiiiice</button>
-      <% end %>
-      <h3 class="article-vote-count pull-right badge"><%= article.votes.count %></h3>
+
+      <div class="vote-details pull-right">
+        
+        <div class="vote-message"><p> </p></div>
+        <button class="article-nice-button btn btn-default btn-xs" type="submit">niiiiiice</button>
+        <% end %>
+        <h3 class="article-vote-count pull-right badge"><%= article.votes.count %></h3>
+
+      </div>
+
+
     </div>
     
     <div class="panel-body">
