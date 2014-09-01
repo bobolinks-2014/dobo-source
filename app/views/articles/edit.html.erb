@@ -5,10 +5,16 @@
 		<%= f.label :title %><br>
 		<%= f.text_field :title, :autofocus => true %>
 	</div>
+
+	<% if @article.url != nil %>
+	
 	<div> 
 		<%= f.label :url, "Resource URL" %><br>
 		<%= f.url_field :url, :autofocus => true %>
 	</div>
+	
+	<% end %>
+
 	<div>
 		<%= f.label :short_description, "Short Description" %><br>
 		<%= f.text_field :short_description, :autofocus => true %>
@@ -31,11 +37,17 @@
 		<%= label_tag 'phase_tag[]', 'Alumni' %>
 			
 	</div> 
-	<div>
+
+	<% if @article.body != nil %>
+
+	<div class="edit-article">
 		<%= f.label :body, "Post" %><br>
-		<%= f.text_field :body, :class => "big-input-box", :autofocus => true %>
+		<%= f.text_area :body, :class => "big-input-box", :autofocus => true %>
 	</div>
-	<div> 
+
+	<% end %>
+
+	<div class="edit-article tags"> 
 		<%= f.label :tag_list, "Tags" %><br>
 		<%= f.text_field :tag_list, :autofocus => true %>
 	</div>

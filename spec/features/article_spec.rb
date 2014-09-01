@@ -40,7 +40,7 @@ feature 'Article Editing' do
 
 	scenario 'an article cannot be edited without the user selecting a phase tag' do
 		user = create_logged_in_user
-		article = Article.create(poster: user, title: "Bobo the Bobolink wins the game!", short_description: "It was an exciting game")
+		article = Article.create(poster: user, title: "Bobo the Bobolink wins the game!", short_description: "It was an exciting game", body: "cool stuff")
 		visit edit_article_path(article)
 		fill_in "Title", with: "Bobo the Bobolink wins the game!"
 		fill_in "Short Description", with: "New Short Description"

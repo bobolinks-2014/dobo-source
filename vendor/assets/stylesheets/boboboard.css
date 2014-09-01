@@ -154,3 +154,15 @@ input {
   margin: 10px;
   border-bottom: dotted 1px gray;
 }
+
+/*New Article post and tags*/
+
+.new-article textarea, .edit-article textarea{
+  width: 100%;
+  rows: 8;
+}
+.new-article .tags input, .edit-article .tags input{
+  width: 100%;
+}
+
+
