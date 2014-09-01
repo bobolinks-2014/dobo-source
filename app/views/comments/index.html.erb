@@ -38,11 +38,11 @@
   <% if is_commenter?(comment) %>
     <button class="comment-delete-button btn btn-default btn-xs" type="submit">delete comment</button>
   <% end %>  
+      <h3 class="comment-vote-count pull-right badge"><%= comment.votes.count %></h3>
     <% if is_voteable?(comment) %>
       <div class="vote-message"><p> </p></div>
       <button class="comment-nice-button btn btn-default btn-xs pull-right" type="submit">niiiiiice</button>
       <% end %>
-      <h3 class="comment-vote-count pull-right badge"><%= comment.votes.count %></h3>
     <p><%= comment.body %></p>
     
      <div class="comment-details panel-body">

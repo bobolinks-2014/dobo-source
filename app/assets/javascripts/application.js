@@ -95,12 +95,12 @@ function updateArticleVoteCount(articleId) {
       button_parent.children('button').remove();
       var currentVoteCount = parseInt(button_parent.children('h3').text());
       button_parent.children('h3').text(currentVoteCount + 1);
-      button_parent.children('.vote-message').children('p').text(message)
+      button_parent.prepend("<span class='alert'>"+message+"</span>");
     }
     else if (response.voted === 0) {
       button_parent = $("button#" + vote.tally_id).parent();
       button_parent.children('button').remove();
-      button_parent.children('.vote-message').children('p').text(message)
+      button_parent.prepend("<span class='alert'>"+message+"</span>");
     }
   });
 }
@@ -126,14 +126,14 @@ function updateCommentVoteCount(articleUrl, commentID) {
     message = response.message
     if (response.voted === 1) {
       search = $(".comment input[value~="+ vote.tally_id +"]");
-      search.parent().children('button').remove();
+      search.parent().find('.comment-nice-button').remove()
       var currentVoteCount = parseInt(search.parent().children('h3').text());
       search.parent().children('h3').text(currentVoteCount + 1);
       search.parent().children('.vote-message').children('p').text(message)
     }
     else if (response.voted === 0) {
       search = $(".comment input[value~="+ vote.tally_id +"]");
-      search.parent().children('button').remove();
+      search.parent().find('.comment-nice-button').remove()
       var currentVoteCount = parseInt(search.parent().children('h3').text());
       search.parent().children('.vote-message').children('p').text(message)
     }
