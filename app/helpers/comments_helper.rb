@@ -12,6 +12,6 @@ module CommentsHelper
   end
 
   def is_voteable?(comment)
-    comment.commenter == current_user && comment.edited != true
+    user_signed_in? && comment.edited != true
   end
 end
