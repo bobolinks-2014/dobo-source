@@ -21,6 +21,13 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.update(body: "This comment was deleted by the user.", edited: true)
+    respond_to do |format|
+      format.json { render json: {comment: @comment.body, success: 1} }
+    end
+  end
   private
   
   def comment_params

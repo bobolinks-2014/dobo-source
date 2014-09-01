@@ -23,6 +23,17 @@ function sendComment(commentParams, id) {
   return sendRequest;
 }
 
+function deleteComment(commentId, pageArea) {
+  var id = $("#art-id").val();
+  var request = $.ajax({
+    url: "/articles/"+id+"/comments/"+commentId,
+    type: "DELETE"
+  });
+  request.done(function(response) {
+    removeComment(pageArea);
+  });
+}
+
 function getDate() {
   var d = new Date();
 
@@ -37,8 +48,13 @@ function getDate() {
 }
 
 function addComment(comment) {
-  $(".comment-session").prepend("<div class='comment'><input type='hidden' name='comment_id' value='"+comment.id+"'><div class='vote-message'><p> </p></div><button class='comment-nice-button btn btn-default btn-xs pull-right' type='submit'>niiiiiice</button><h3 class='comment-vote-count pull-right badge'>0</h3><p>"+comment.comment+"</p><div class='comment-details panel-body'><small>posted by: "+comment.commenter+" | created on: "+getDate()+"</small></div>");
+  $(".comment-session").prepend("<div class='comment'><input type='hidden' name='comment_id' value='"+comment.id+"'><button class='comment-delete-button btn btn-default btn-xs' type='submit'>delete comment</button><div class='vote-message'><p> </p></div><button class='comment-nice-button btn btn-default btn-xs pull-right' type='submit'>niiiiiice</button><h3 class='comment-vote-count pull-right badge'>0</h3><p>"+comment.comment+"</p><div class='comment-details panel-body'><small>posted by: "+comment.commenter+" | created on: "+getDate()+"</small></div>");
   $("#comment_body").val(''); 
+}
+
+function removeComment(areaId) {
+  areaId.find('button').remove();
+  areaId.find('p').last().html('This comment was deleted by the user.')
 }
 
 function renderError() {
