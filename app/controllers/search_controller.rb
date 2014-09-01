@@ -2,7 +2,7 @@ class SearchController < ApplicationController
   respond_to :json, :html
   #TODO: respond to html as well
   def search
-    @articles = Article.tagged_with(get_params, any: true).limit(20).order(:votes_count => :desc)
+    @articles = Article.tagged_with(get_params, any: true).limit(36).order(:votes_count => :desc)
     if @articles == []
       respond_with @articles, status: 404
     else
