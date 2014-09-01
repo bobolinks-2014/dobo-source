@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :edit] 
 
   def index 
-    @articles = Article.paginate(page: params[:page], per_page: 12)
+    @articles = Article.paginate(page: params[:page], per_page: 12).order(created_at: :desc)
   end
 
   def new
