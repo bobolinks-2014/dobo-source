@@ -171,3 +171,9 @@ input {
 .new-article .tags input, .edit-article .tags input{
   width: 100%;
 }
+
+.checkbox-inline {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}
